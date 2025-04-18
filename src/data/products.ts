@@ -438,42 +438,7 @@ export const products: Product[] = [
     stock: 1,
     rating: 5.0
   },
-  {
-    id: "20",
-    name: "Jadek Mechanical Gaming Keyboard",
-    price: 5999,
-    image: "/images/accessory1.png",
-    description: "RGB mechanical keyboard with customizable keys and macro support.",
-    type: "accessory",
-    categories: ["accessories"],
-    specs: {},
-    stock: 42,
-    rating: 4.6
-  },
-  {
-    id: "21",
-    name: "Jadek Wireless Gaming Mouse",
-    price: 3999,
-    image: "/images/accessory2.png",
-    description: "High-precision wireless gaming mouse with customizable DPI.",
-    type: "accessory",
-    categories: ["accessories"],
-    specs: {},
-    stock: 38,
-    rating: 4.7
-  },
-  {
-    id: "22",
-    name: "Jadek 4K Gaming Monitor",
-    price: 24999,
-    image: "/images/accessory3.png",
-    description: "27-inch 4K gaming monitor with 144Hz refresh rate and 1ms response time.",
-    type: "accessory",
-    categories: ["accessories"],
-    specs: {},
-    stock: 12,
-    rating: 4.8
-  }
+
 ];
 
 export const getProductsByCategory = (category: Category) => {

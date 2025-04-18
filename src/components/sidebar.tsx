@@ -10,7 +10,6 @@ interface SidebarProps {
 export function Sidebar({ selectedCategory }: SidebarProps) {
   const primaryCategories = [
     { id: "desktops", name: "All Desktops", icon: <Cpu className="h-4 w-4" /> },
-    { id: "accessories", name: "PC Accessories", icon: <Package className="h-4 w-4" /> },
   ];
 
   const useCaseCategories = [

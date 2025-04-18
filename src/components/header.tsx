@@ -37,9 +37,6 @@ export function Header() {
                     <Link href="/?category=desktops" className="text-md hover:underline">
                       All Desktops
                     </Link>
-                    <Link href="/?category=accessories" className="text-md hover:underline">
-                      PC Accessories
-                    </Link>
                   </div>
                 </div>
                 <div className="py-2">

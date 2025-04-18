@@ -18,11 +18,11 @@ const cartItems = [
     type: "desktop" as const,
   },
   {
-    id: "20",
-    name: "Jadek Mechanical Gaming Keyboard",
-    price: 5999,
-    quantity: 2,
-    type: "accessory" as const,
+    id: "8",
+    name: "Jadek Storm 610",
+    price: 85000,
+    quantity: 1,
+    type: "desktop" as const,
   }
 ];
 
