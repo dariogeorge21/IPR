@@ -11,26 +11,35 @@ import { Minus, Plus, X, ShoppingBag } from "lucide-react";
 // Mock cart items
 const cartItems = [
   {
-    id: "1",
-    name: "Jadek ProBook X5",
-    price: 1299.99,
+    id: "5",
+    name: "Jadek Venom 590",
+    price: 68000,
     quantity: 1,
-    type: "laptop" as const,
+    type: "desktop" as const,
   },
   {
-    id: "10",
+    id: "20",
     name: "Jadek Mechanical Gaming Keyboard",
-    price: 129.99,
+    price: 5999,
     quantity: 2,
     type: "accessory" as const,
   }
 ];
 
+// Format price with Indian Rupee symbol and commas
+const formatPrice = (price: number) => {
+  return new Intl.NumberFormat('en-IN', {
+    style: 'currency',
+    currency: 'INR',
+    maximumFractionDigits: 0,
+  }).format(price);
+};
+
 export default function CartPage() {
   // Calculate totals
   const subtotal = cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
-  const shipping = 15.99;
-  const tax = subtotal * 0.08; // 8% tax
+  const shipping = 499;
+  const tax = subtotal * 0.18; // 18% GST
   const total = subtotal + shipping + tax;
 
   return (
@@ -40,7 +49,7 @@ export default function CartPage() {
         <section className="py-12 md:py-16">
           <div className="container px-4 md:px-6">
             <h1 className="text-3xl font-bold mb-8">Your Cart</h1>
-            
+
             {cartItems.length > 0 ? (
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <div className="lg:col-span-2">
@@ -55,7 +64,7 @@ export default function CartPage() {
                             </div>
                             <div className="flex-1 min-w-0">
                               <h3 className="font-medium truncate">{item.name}</h3>
-                              <p className="text-sm text-muted-foreground">Unit Price: ${item.price.toFixed(2)}</p>
+                              <p className="text-sm text-muted-foreground">Unit Price: {formatPrice(item.price)}</p>
                             </div>
                             <div className="flex items-center space-x-2">
                               <Button variant="outline" size="icon" className="h-8 w-8">
@@ -69,7 +78,7 @@ export default function CartPage() {
                               </Button>
                             </div>
                             <div className="text-right min-w-[80px]">
-                              <div className="font-medium">${(item.price * item.quantity).toFixed(2)}</div>
+                              <div className="font-medium">{formatPrice(item.price * item.quantity)}</div>
                               <Button variant="ghost" size="icon" className="h-8 w-8 text-muted-foreground">
                                 <X className="h-4 w-4" />
                                 <span className="sr-only">Remove item</span>
@@ -87,20 +96,20 @@ export default function CartPage() {
                     <div className="space-y-2">
                       <div className="flex justify-between">
                         <span className="text-muted-foreground">Subtotal</span>
-                        <span>${subtotal.toFixed(2)}</span>
+                        <span>{formatPrice(subtotal)}</span>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-muted-foreground">Shipping</span>
-                        <span>${shipping.toFixed(2)}</span>
+                        <span>{formatPrice(shipping)}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-muted-foreground">Tax</span>
-                        <span>${tax.toFixed(2)}</span>
+                        <span className="text-muted-foreground">GST (18%)</span>
+                        <span>{formatPrice(tax)}</span>
                       </div>
                       <Separator />
                       <div className="flex justify-between font-medium text-lg">
                         <span>Total</span>
-                        <span>${total.toFixed(2)}</span>
+                        <span className="text-blue-600">{formatPrice(total)}</span>
                       </div>
                     </div>
                     <div className="pt-4 space-y-4">

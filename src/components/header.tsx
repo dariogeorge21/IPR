@@ -34,14 +34,8 @@ export function Header() {
                 <div className="py-2">
                   <h3 className="font-bold mb-2">Categories</h3>
                   <div className="pl-2 flex flex-col gap-2">
-                    <Link href="/?category=laptops" className="text-md hover:underline">
-                      Laptops
-                    </Link>
                     <Link href="/?category=desktops" className="text-md hover:underline">
-                      Desktops
-                    </Link>
-                    <Link href="/?category=all-in-ones" className="text-md hover:underline">
-                      All-in-Ones
+                      All Desktops
                     </Link>
                     <Link href="/?category=accessories" className="text-md hover:underline">
                       PC Accessories
@@ -49,16 +43,30 @@ export function Header() {
                   </div>
                 </div>
                 <div className="py-2">
-                  <h3 className="font-bold mb-2">Use Cases</h3>
+                  <h3 className="font-bold mb-2">Desktop Types</h3>
                   <div className="pl-2 flex flex-col gap-2">
-                    <Link href="/?category=student-laptops" className="text-md hover:underline">
-                      Student Laptops
+                    <Link href="/?category=student-desktops" className="text-md hover:underline">
+                      Student Desktops
                     </Link>
-                    <Link href="/?category=business-laptops" className="text-md hover:underline">
-                      Business Laptops
+                    <Link href="/?category=business-desktops" className="text-md hover:underline">
+                      Business Desktops
                     </Link>
-                    <Link href="/?category=gaming-laptops" className="text-md hover:underline">
-                      Gaming Laptops
+                    <Link href="/?category=gaming-desktops" className="text-md hover:underline">
+                      Gaming Desktops
+                    </Link>
+                  </div>
+                </div>
+                <div className="py-2">
+                  <h3 className="font-bold mb-2">Price Range</h3>
+                  <div className="pl-2 flex flex-col gap-2">
+                    <Link href="/?category=below-50k" className="text-md hover:underline">
+                      Below ₹50,000
+                    </Link>
+                    <Link href="/?category=50k-75k" className="text-md hover:underline">
+                      ₹50,000 - ₹75,000
+                    </Link>
+                    <Link href="/?category=75k-100k" className="text-md hover:underline">
+                      ₹75,000 - ₹1,00,000
                     </Link>
                   </div>
                 </div>
@@ -72,6 +80,12 @@ export function Header() {
           <nav className="hidden md:flex items-center gap-6">
             <Link href="/" className="text-sm font-medium hover:underline">
               Home
+            </Link>
+            <Link href="/?category=gaming-desktops" className="text-sm font-medium hover:underline">
+              Gaming PCs
+            </Link>
+            <Link href="/?category=business-desktops" className="text-sm font-medium hover:underline">
+              Business PCs
             </Link>
             <Link href="/about" className="text-sm font-medium hover:underline">
               About

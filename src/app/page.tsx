@@ -6,14 +6,14 @@ import { ProductGrid } from "@/components/product-grid";
 import { Button } from "@/components/ui/button";
 import { products, getProductsByCategory, Category } from "@/data/products";
 
-interface HomePageProps {
-  searchParams: {
-    category?: Category;
-  };
-}
-
-export default function Home({ searchParams }: HomePageProps) {
-  const { category } = searchParams;
+export default function Home({
+  searchParams
+}: {
+  searchParams: { category?: string }
+}) {
+  // Convert searchParams.category to Category type if it exists
+  const categoryParam = searchParams.category;
+  const category = categoryParam ? (categoryParam as Category) : undefined;
 
   // Filter products based on category
   const filteredProducts = category
@@ -29,14 +29,18 @@ export default function Home({ searchParams }: HomePageProps) {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-blue-600">Jadek PC Solutions</h1>
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-blue-600">Build Your Dream PC</h1>
                 <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                  Your trusted partner for high-quality computers, laptops, and accessories.
+                  Jadek PC Solutions offers custom-built desktops for gaming, business, and everyday use.
                 </p>
               </div>
               <div className="space-x-4">
-                <Button size="lg" className="bg-blue-600 hover:bg-blue-700">Shop Now</Button>
-                <Button variant="outline" size="lg" className="border-blue-600 text-blue-600 hover:bg-blue-50">Learn More</Button>
+                <Link href="/?category=gaming-desktops">
+                  <Button size="lg" className="bg-blue-600 hover:bg-blue-700">Gaming PCs</Button>
+                </Link>
+                <Link href="/?category=business-desktops">
+                  <Button variant="outline" size="lg" className="border-blue-600 text-blue-600 hover:bg-blue-50">Business PCs</Button>
+                </Link>
               </div>
             </div>
           </div>
