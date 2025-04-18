@@ -1,8 +1,8 @@
 import React from "react";
-import { ComputerType } from "@/types";
+import { ProductType } from "@/data/products";
 
 interface PlaceholderImageProps {
-  type: ComputerType;
+  type: ProductType;
   className?: string;
 }
 
@@ -13,6 +13,8 @@ export function PlaceholderImage({ type, className = "" }: PlaceholderImageProps
         return "bg-blue-100";
       case "desktop":
         return "bg-green-100";
+      case "all-in-one":
+        return "bg-amber-100";
       case "accessory":
         return "bg-purple-100";
       default:
@@ -25,6 +27,8 @@ export function PlaceholderImage({ type, className = "" }: PlaceholderImageProps
       case "laptop":
         return "💻";
       case "desktop":
+        return "🖥️";
+      case "all-in-one":
         return "🖥️";
       case "accessory":
         return "🖱️";

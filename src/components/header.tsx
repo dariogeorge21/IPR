@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { ShoppingCart, Search, Menu } from "lucide-react";
+import { ShoppingCart, Search, Menu, User } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 export function Header() {
@@ -22,48 +22,62 @@ export function Header() {
                 <Link href="/" className="text-lg font-semibold hover:underline">
                   Home
                 </Link>
-                <Link href="/products" className="text-lg font-semibold hover:underline">
-                  All Products
+                <Link href="/about" className="text-lg font-semibold hover:underline">
+                  About
                 </Link>
-                <Link href="/products?category=laptops" className="text-lg font-semibold hover:underline">
-                  Laptops
+                <Link href="/contact" className="text-lg font-semibold hover:underline">
+                  Contact
                 </Link>
-                <Link href="/products?category=desktops" className="text-lg font-semibold hover:underline">
-                  Desktops
+                <Link href="/cart" className="text-lg font-semibold hover:underline">
+                  Cart
                 </Link>
-                <Link href="/products?category=accessories" className="text-lg font-semibold hover:underline">
-                  Accessories
-                </Link>
-                <Link href="/products?category=gaming" className="text-lg font-semibold hover:underline">
-                  Gaming
-                </Link>
-                <Link href="/products?category=business" className="text-lg font-semibold hover:underline">
-                  Business
-                </Link>
-                <Link href="/products?category=second-hand" className="text-lg font-semibold hover:underline">
-                  Second Hand
-                </Link>
+                <div className="py-2">
+                  <h3 className="font-bold mb-2">Categories</h3>
+                  <div className="pl-2 flex flex-col gap-2">
+                    <Link href="/?category=laptops" className="text-md hover:underline">
+                      Laptops
+                    </Link>
+                    <Link href="/?category=desktops" className="text-md hover:underline">
+                      Desktops
+                    </Link>
+                    <Link href="/?category=all-in-ones" className="text-md hover:underline">
+                      All-in-Ones
+                    </Link>
+                    <Link href="/?category=accessories" className="text-md hover:underline">
+                      PC Accessories
+                    </Link>
+                  </div>
+                </div>
+                <div className="py-2">
+                  <h3 className="font-bold mb-2">Use Cases</h3>
+                  <div className="pl-2 flex flex-col gap-2">
+                    <Link href="/?category=student-laptops" className="text-md hover:underline">
+                      Student Laptops
+                    </Link>
+                    <Link href="/?category=business-laptops" className="text-md hover:underline">
+                      Business Laptops
+                    </Link>
+                    <Link href="/?category=gaming-laptops" className="text-md hover:underline">
+                      Gaming Laptops
+                    </Link>
+                  </div>
+                </div>
               </nav>
             </SheetContent>
           </Sheet>
           <Link href="/" className="flex items-center gap-2">
-            <span className="text-xl font-bold">TechStore</span>
+            <span className="text-xl font-bold text-blue-600">Jadek</span>
+            <span className="text-lg hidden sm:inline">PC Solutions</span>
           </Link>
           <nav className="hidden md:flex items-center gap-6">
             <Link href="/" className="text-sm font-medium hover:underline">
               Home
             </Link>
-            <Link href="/products" className="text-sm font-medium hover:underline">
-              All Products
+            <Link href="/about" className="text-sm font-medium hover:underline">
+              About
             </Link>
-            <Link href="/products?category=laptops" className="text-sm font-medium hover:underline">
-              Laptops
-            </Link>
-            <Link href="/products?category=desktops" className="text-sm font-medium hover:underline">
-              Desktops
-            </Link>
-            <Link href="/products?category=accessories" className="text-sm font-medium hover:underline">
-              Accessories
+            <Link href="/contact" className="text-sm font-medium hover:underline">
+              Contact
             </Link>
           </nav>
         </div>
@@ -79,12 +93,18 @@ export function Header() {
               <span className="sr-only">Search</span>
             </Button>
           </form>
-          <Button variant="outline" size="icon" className="relative">
-            <ShoppingCart className="h-5 w-5" />
-            <span className="sr-only">Cart</span>
-            <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[10px] font-medium text-primary-foreground">
-              0
-            </span>
+          <Link href="/cart">
+            <Button variant="outline" size="icon" className="relative">
+              <ShoppingCart className="h-5 w-5" />
+              <span className="sr-only">Cart</span>
+              <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[10px] font-medium text-primary-foreground">
+                0
+              </span>
+            </Button>
+          </Link>
+          <Button variant="ghost" size="icon" className="hidden sm:flex">
+            <User className="h-5 w-5" />
+            <span className="sr-only">Account</span>
           </Button>
         </div>
       </div>
